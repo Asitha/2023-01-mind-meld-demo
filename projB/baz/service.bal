@@ -22,7 +22,7 @@ service / on new http:Listener(9090) {
     resource function get callBar(string inName) returns string|error {
         // Send a response back to the caller.
         http:Client clientEp = check new (barEp);
-        string res = check clientEp->/greeting (name=inName);
+        string res = check clientEp->/callFoo (name=inName);
         return res + " - sent from baz";
     }
 }
